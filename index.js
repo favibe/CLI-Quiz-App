@@ -1,15 +1,23 @@
 
 //import readline from 'readline-sync';
 //let readlineSync = readline.question("")
+import readlineSync from "readline-sync";
+import kuler from "kuler";
 
 // take user input(answers)
-let readlineSync = require("readline-sync");
+
+//kular lets us use color in js (hexcode)
+
 
 //score
 let score = 0;
 
 //Get Username
 let userName = readlineSync.question("What's your name? ");
+console.log(kuler(`Hello ${userName} welcome to Quiz-App`, "#dc2626"))
+
+//Like a game rule
+console.log("\nPlease select any options by typing either a/b/c/d\n")
 
 //Creating a data structure for the questions
 const dataset = {
@@ -68,11 +76,11 @@ const leaderBoard = {
 //The playgame logic for correct answers
 function playGame (userAnswer, correctAnswer) {
     if (userAnswer === correctAnswer) {
-        console.log("Correct Answer")
+        console.log(kuler("Correct Answer", "#059669"))
         score++;
     } else {
-        console.log("Incorrect Answers");
-        console.log(`The Correct answer is : ${correctAnswer}`)
+        console.log(kuler("Incorrect Answers", "#b91c1c"));
+        console.log(kuler(`The Correct answer is : ${correctAnswer}`, "#1d4ed8"))
     }
 }
 
@@ -94,8 +102,14 @@ function showQuestionAndOptions(dataset) {
 
 //Function for High score
 function showHighScore(leaderBoard) {
-    h
+    leaderBoard.data.push({name: userName, score: score})
+    let sortedScoreList = leaderBoard.data.sort((a,b) => b.score - a.score);
+    console.log(kular("\nCheck your position on the Leader Board ✨", "#fde047"))
+    for (let leader of sortedScoreList) {
+        console.log(kuler(`${leader.name} - Score: ${leader.score}`,"#9333ea"))
+    }
 }
 
 showQuestionAndOptions(dataset);
-console.log(`Your score is - ${score}`);
+console.log(kuler(`\nYour score is - ${score}`, "#5eead4"));
+showHighScore(leaderBoard)
