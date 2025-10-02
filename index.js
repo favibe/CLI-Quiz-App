@@ -8,6 +8,9 @@ let readlineSync = require("readline-sync");
 //score
 let score = 0;
 
+//Get Username
+let userName = readlineSync.question("What's your name? ");
+
 //Creating a data structure for the questions
 const dataset = {
     data: [
@@ -44,6 +47,24 @@ console.log(a === b)`,
     ]
 }
 
+//LeaderBorad
+const leaderBoard = {
+    data: [
+        {
+            name: "Vanessa",
+            score: 2
+        },
+        {
+            name: "Elle",
+            score: 1
+        },
+        {
+            name: "Fav",
+            score: 3
+        }
+    ]
+}
+
 //The playgame logic for correct answers
 function playGame (userAnswer, correctAnswer) {
     if (userAnswer === correctAnswer) {
@@ -57,8 +78,8 @@ function playGame (userAnswer, correctAnswer) {
 
 /* My questions, option are in a array, which allows me be able 
 to loop through thrm (datatset.data)*/
-//  A fuction that loops to show Qustion and Answer
 
+//  A fuction that loops to show Qustion and Answer
 function showQuestionAndOptions(dataset) {
     for (let i = 0; i<dataset.data.length; i++) {
         //console.log(dataset.data[i].question)
@@ -70,5 +91,11 @@ function showQuestionAndOptions(dataset) {
         playGame(userAnswer, dataset.data[i].correctAnswer);
     }
 }
+
+//Function for High score
+function showHighScore(leaderBoard) {
+    h
+}
+
 showQuestionAndOptions(dataset);
 console.log(`Your score is - ${score}`);
