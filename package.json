@@ -1,6 +1,7 @@
 {
+  "type": "module",
   "dependencies": {
-    "kuler": "^2.0.0",
-    "readline-sync": "^1.4.10"
+    "readline-sync": "^1.4.10",
+    "kuler": "^2.0.0"
   }
 }
