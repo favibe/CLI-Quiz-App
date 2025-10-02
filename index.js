@@ -5,6 +5,9 @@
 // take user input(answers)
 let readlineSync = require("readline-sync");
 
+//score
+let score = 0;
+
 //Creating a data structure for the questions
 const dataset = {
     data: [
@@ -41,6 +44,17 @@ console.log(a === b)`,
     ]
 }
 
+//The playgame logic for correct answers
+function playGame (userAnswer, correctAnswer) {
+    if (userAnswer === correctAnswer) {
+        console.log("Correct Answer")
+        score++;
+    } else {
+        console.log("Incorrect Answers");
+        console.log(`The Correct answer is : ${correctAnswer}`)
+    }
+}
+
 /* My questions, option are in a array, which allows me be able 
 to loop through thrm (datatset.data)*/
 //  A fuction that loops to show Qustion and Answer
@@ -52,7 +66,9 @@ function showQuestionAndOptions(dataset) {
         for(let key in dataset.data[i].options){
             console.log(`${key} - ${dataset.data[i].options[key]}`)
         }
-        let userAnswer = readlineSync.question("Enter your answer - (a/b/c/d) - ");
+        let userAnswer = readlineSync.question("Enter your answer - (a/b/c/d) - ").toLocaleLowerCase();
+        playGame(userAnswer, dataset.data[i].correctAnswer);
     }
 }
 showQuestionAndOptions(dataset);
+console.log(`Your score is - ${score}`);
