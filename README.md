@@ -25,5 +25,5 @@ Users can answer multiple-choice questions directly in the terminal, get instant
 
 ### 1. Clone this repository
 ```bash
-git clone https://github.com/YOUR-USERNAME/CLI-Quiz-App.git
+git clone https://github.com/favibe/CLI-Quiz-App.git
 cd CLI-Quiz-App
